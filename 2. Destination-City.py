@@ -1,0 +1,22 @@
+# Title: Destination City 
+# You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path going from cityAi and cityBi. 
+# Return the destination city, that is, the city without any path outgoing to another city. 
+# Example1: 
+# Input: paths = [["London","New York"], ["New York","Lima"], ["Lima","Sao Paulo"]] 
+# Output: "Sao Paulo Explanation: Starting at "London" city you will reach "Sao Paulo" city which is the destination city. 
+# Your trip consist of: "London" -> "New York" -> "Lima" -> "Sao Paulo".
+
+import test
+
+def Solution(paths: list[list[str]]) -> str:
+    outs = set()
+    ins = set()
+
+    for a,b in paths:
+        outs.add(a)
+        ins.add(b)
+   
+    return [b for b in ins if b not in outs][0]
+
+#Testing
+test.runTests(Solution)
