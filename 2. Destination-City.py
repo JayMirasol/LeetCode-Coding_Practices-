@@ -19,4 +19,9 @@ def Solution(paths: list[list[str]]) -> str:
     return [b for b in ins if b not in outs][0]
 
 #Testing
-test.runTests(Solution)
+test_cases = [
+    {"input": [ [["London", "New York"], ["New York", "Lima"], ["Lima", "Sao Paulo"]] ], "expected": "Sao Paulo"},
+    {"input": [ [["B", "C"], ["D", "B"], ["C", "A"]] ], "expected": "A"},
+    {"input": [ [["A", "Z"]] ], "expected": "Z"},
+]
+test.runTests(Solution, test_cases)

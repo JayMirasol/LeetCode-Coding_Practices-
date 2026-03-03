@@ -1,29 +1,22 @@
-def runTests(solution):
-    test_cases = [
-        {
-            "input": [["London", "New York"], ["New York", "Lima"], ["Lima", "Sao Paulo"]],
-            "expected": "Sao Paulo"
-        },
-        {
-            "input": [["B", "C"], ["D", "B"], ["C", "A"]],
-            "expected": "A"
-        },
-        {
-            "input": [["A", "Z"]],
-            "expected": "Z"
-        },
-    ]
+def runTests(solution, test_cases):
+    """
+    Run a list of test cases against a solution function.
 
+    Each test case is a dict with:
+      - 'input': a list of arguments to unpack into the solution
+      - 'expected': the expected return value
+    """
     passed = 0
     failed = 0
 
     for i, tc in enumerate(test_cases):
-        result = solution(tc["input"])
+        args = tc["input"] if isinstance(tc["input"], list) else [tc["input"]]
+        result = solution(*args)
         if result == tc["expected"]:
-            print(f"Test {i + 1} PASSED: input={tc['input']} -> '{result}'")
+            print(f"Test {i + 1} PASSED: input={tc['input']} -> {repr(result)}")
             passed += 1
         else:
-            print(f"Test {i + 1} FAILED: input={tc['input']} -> expected '{tc['expected']}', got '{result}'")
+            print(f"Test {i + 1} FAILED: input={tc['input']} -> expected {repr(tc['expected'])}, got {repr(result)}")
             failed += 1
 
     print(f"\n{passed} passed, {failed} failed.")
