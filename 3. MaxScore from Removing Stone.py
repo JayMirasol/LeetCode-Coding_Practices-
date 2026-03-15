@@ -23,3 +23,36 @@ test_cases = [
     {"input": [0, 0, 5], "expected": 0},
 ]
 test.runTests(Solution, test_cases)
+
+
+# Explained Solution:
+
+# Iterations of [2, 4, 6] 
+
+# 6 iteration | Max Score : 6 | res = 6
+# [1, 4, 5]
+# [0, 4, 4]
+# [0, 3, 3]
+# [0, 2, 2]
+# [0, 1, 1]
+# [0, 0, 0]
+
+# Iterations of [2, 3, 3] 
+
+# 4 iteration | Max Score : 4 | res = 4
+# [2, 2, 2]
+# [2, 1, 1]
+# [1, 1, 0]
+# [0, 0, 0]
+
+# Iterations of [1, 8, 8] 
+
+# 8 iteration | Max Score : 8 | res = 8
+# [1, 7, 7]
+# [1, 6, 6]
+# [1, 5, 5]
+# [1, 4, 4]
+# [1, 3, 3]
+# [1, 2, 2]
+# [0, 1, 1]
+# [0, 0, 0]
